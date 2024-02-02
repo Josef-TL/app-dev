@@ -18,13 +18,15 @@ fun main(){
     //ex3()
     //ex4()
 
-    //val ex5List: MutableList<Int> = mutableListOf(50,16,45,43,86,123)
+    val ex5List: MutableList<Double> = mutableListOf(50.0,16.0,45.0,43.0,86.0,123.0)
+    ex5List.sort()
+    println("Sorted: " + ex5List)
     //ex5(ex5List)
 
     //ex6()
     //ex7()
 
-    println("ben".toInt())
+    //println("ben".toInt())
 
 
 
@@ -61,7 +63,8 @@ fun ex4(){
 }
 
 // Opgave 5
-fun ex5(l: MutableList<Int>){
+fun ex5(l: MutableList<Double>){
+
     l.sortDescending()
 
     println("Next-highest int: ${l[1]}")
