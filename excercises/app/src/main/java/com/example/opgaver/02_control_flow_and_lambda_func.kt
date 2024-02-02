@@ -4,7 +4,10 @@ import java.util.*
 fun main() {
     println(findLargestNumber(1,2,3))
 
-    checkForPalindrome()
+    //checkForPalindrome()
+    //println(sumThese())
+    blackJack(1,-2)
+
 }
 
 // *************************************
@@ -32,4 +35,34 @@ fun checkForPalindrome(){
     }
 
     if (result) println("You entered a palindrome") else print("You did not enter a palindrome")
+}
+
+// C)
+fun sumThese():Int{
+    val scan = Scanner(System.`in`)
+    print("Enter three numbers: ")
+
+    val userList: MutableList<Int> = mutableListOf(scan.nextInt(),scan.nextInt(),scan.nextInt())
+    /*
+    val numOne = scan.nextInt()
+    val numTwo = scan.nextInt()
+    val numThree = scan.nextInt()*/
+
+    val numList = userList.distinct()
+
+    return numList.sum()//maxOf(numOne,numTwo,numThree)
+}
+
+// D)
+fun blackJack(a:Int,b:Int): Int{
+    if(a<0 || b<0){ println("enter positive numbers")}
+    else {
+        val aDist = 21 - a
+        val bDist = 21 - b
+        return if (aDist> 0 || bDist > 0) {
+            if (aDist>bDist) b else a
+
+        } else 0
+    }
+    return 0
 }
