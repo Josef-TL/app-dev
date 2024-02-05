@@ -1,5 +1,6 @@
 package com.example.opgaver
 import java.util.*
+import kotlin.math.round
 
 fun main() {
     println(findLargestNumber(1,2,3))
@@ -8,6 +9,15 @@ fun main() {
     //println(sumThese())
     blackJack(1,-2)
 
+    //val l: List<Int> = listOf(1,2,3,45,6,7,89,10,12)
+    //println(filterNumOverTen(l))
+
+    //val stringL: List<String> = listOf("test","mad","ninja","weeb-nation")
+    //println(getStringLen(stringL))
+
+
+    val degrFar: List<Double> = listOf(32.01, 68.0, 85.0, 104.0, 212.0)
+    println(farToCelc(degrFar))
 }
 
 // *************************************
@@ -65,4 +75,25 @@ fun blackJack(a:Int,b:Int): Int{
         } else 0
     }
     return 0
+}
+
+// *************************************
+// Lambda functions
+// *************************************
+
+// A)
+fun filterNumOverTen(l:List<Int>):List<Int>{
+    return l.filter { it < 10 }
+}
+
+// B)
+fun getStringLen(l:List<String>):List<Int>{
+    return l.map { it.length }
+}
+
+// C)
+fun farToCelc(l:List<Double>):List<String>{
+    val tempList: List<Double> =  l.map { (it-32.0)*(5.0/9.0) }
+    // using format to limit decimals. US to use . as comma seperator
+    return tempList.map { "%.2f".format(Locale.US,it) }
 }
