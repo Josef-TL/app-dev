@@ -13,6 +13,10 @@ fun main(){
     println("Is $cpr a valid CPR Number?")
     println(isCprValid(cpr))
 
+    fizzBuzz()
+
+    abbrevName("Hello Wolrd Test")
+
 }
 
 /*********************
@@ -51,6 +55,8 @@ fun calculateAverage(l:List<Int>):Double{
 }
 
 /*
+Opgave 4
+
 Write a method that returns if a user has input a valid CPR number.
 A valid CPR number has:
  * 10 Digits.
@@ -67,3 +73,43 @@ fun isCprValid(cprString: String):Boolean{
     return validationExpression.matches(cprString)
 }
 
+
+/*
+ Opgave 5
+
+ Write a program that prints the numbers from 1 to 100.
+ But for multiples of three print “Fizz” instead of the number
+ and for the multiples of five print “Buzz”. For numbers which are multiples of both three and five print “FizzBuzz”.
+ */
+
+fun fizzBuzz(){
+    for (l in 1..100){
+        if(l%3 == 0 && l%5 != 0){
+            println("Fizz")
+        } else if(l%3!=0 && l%5 == 0){
+            println("Buzz")
+        } else if(l%3==0 && l%5==0){
+            println("FizzBuzz")
+        }
+        else{ println(l) }
+    }
+}
+
+/*
+Opgave 6
+
+Write a program that takes your full name as input and displays
+the abbreviations of the first and middle names except the last name which is displayed as it is.
+For example, if your name is Robert Brett Roser, then the output should be R.B. Roser.
+Or Benjamin Dalsgaard Hughes will be B.D. Hughes
+
+ */
+
+fun abbrevName(name:String){
+    val nameArr = name.split(" ")
+    var retarr = nameArr.mapIndexed { index, s ->
+            if(index == nameArr.lastIndex) s else s[0]
+    }
+
+    println(retarr.joinToString(separator = ". "))
+}
