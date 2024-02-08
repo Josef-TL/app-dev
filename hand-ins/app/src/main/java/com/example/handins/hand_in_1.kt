@@ -3,7 +3,12 @@ import java.util.Scanner
 
 fun main(){
 
-   // checkAge()
+   checkAge()
+
+    val max : Int = getMax(1,18,8);
+    val min : Int = getMin(1,18,-8);
+    println(max); //18
+    println(min); //-8
 
     val numList: List<Int> = listOf(0,-12,4,6,123)
     println("Average of the list ${numList} is: " + calculateAverage(numList))
@@ -16,6 +21,9 @@ fun main(){
     fizzBuzz()
 
     abbrevName("Hello Wolrd Test")
+
+    val testStringList: List<String> = listOf("Hello", "banana", "elephant", "pizza", "computer", "mountain", "butterfly", "galaxy", "happiness", "freedom")
+    filterWordsByLength(testStringList,3)
 
 }
 
@@ -37,9 +45,18 @@ fun checkAge(){
 
 /*********************
  * Opgave 2
- * Define two functions to print the maximum and the minimum number respectively among three numbers
- * Bruger jeg ikke bare maxOf her?
+ * Define two functions to print the maximum and the minimum number respectively
+ * among three numbers
  *********************/
+fun getMax(a:Int,b:Int,c:Int):Int{
+    return maxOf(a,b,c)
+}
+
+fun getMin(a:Int,b:Int,c:Int):Int{
+    return minOf(a,b,c)
+}
+
+
 
 /*********************
  * Opgave 3
@@ -107,9 +124,55 @@ Or Benjamin Dalsgaard Hughes will be B.D. Hughes
 
 fun abbrevName(name:String){
     val nameArr = name.split(" ")
-    var retarr = nameArr.mapIndexed { index, s ->
+    val returnArr = nameArr.mapIndexed { index, s ->
             if(index == nameArr.lastIndex) s else s[0]
     }
 
-    println(retarr.joinToString(separator = ". "))
+    println(returnArr.joinToString(separator = ". "))
+}
+
+
+/*
+Opgave 7
+
+Write a program that takes a numerical grade (0-100) as input
+and prints out the corresponding american letter grade.
+
+Implement a function calculateGrade that takes an integer parameter representing the grade
+and returns a string representing the letter grade according to the following scale:
+
+90-100: "A"
+80-89: "B"
+70-79: "C"
+60-69: "D"
+Below 60: "F"
+
+ */
+
+fun calculateGrade(grade:Int):String{
+    return when{
+        grade > 100 -> "Enter valid number"
+        grade < 0 -> "Enter valid number"
+        grade in 90..100 -> "A"
+        grade in 80..89 -> "B"
+        grade in 70..79 -> "C"
+        grade in 60..69 -> "D"
+        else -> "F"
+    }
+}
+
+/*
+Opgave 8
+
+Write a Kotlin function named filterWordsByLength that takes in a list of strings and a minimum length,
+and returns a list containing only the words that have a length greater than or equal to
+the specified minimum length.
+
+Use filter function and lambda expressions
+
+ */
+
+fun filterWordsByLength(l:List<String>,minLen:Int):List<String>{
+
+    return l.filter { str -> str.length >= minLen }
 }
