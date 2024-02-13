@@ -1,22 +1,11 @@
-package com.example.handins
+package com.example.handins.handin2
 
-fun main(){
-    // Opgave 1
-    val employeeOne = Employee("Jhon","Smith", 40000.0)
-    val employeeTwo = Employee("Beckie","Mcenzie", 56000.0)
-    println("${employeeOne.firstName}'s monthly salary: ${employeeOne.monthlySalary}")
-    println("${employeeTwo.firstName}'s monthly salary: ${employeeTwo.monthlySalary}")
-    employeeOne.raise(10.0)
-    employeeTwo.raise(10.0)
-    println("${employeeOne.firstName}'s monthly salary after 10% raise: ${employeeOne.monthlySalary}")
-    println("${employeeTwo.firstName}'s monthly salary after 10% raise: ${employeeTwo.monthlySalary}")
 
-    // Opgave 2
-
-}
-
+/*************
+Opgave 1
+ **************/
 class Employee (
-    // Opgave 1
+
     var firstName: String = "",
     var lastName: String = "",
     var monthlySalary: Double = 0.0
@@ -26,6 +15,9 @@ class Employee (
     }
 }
 
+/***************
+Opgave 2
+ ****************/
 open class Computer(
     var manufacturer: String = "",
     var model:String ="",
@@ -33,6 +25,10 @@ open class Computer(
     var serialNumber: String = "",
     var price: Int = 0
 ){
+    init {
+        println("Computer created of type $type")
+    }
+
     var power: Boolean = false
 
     open fun cyclePower(){
@@ -47,7 +43,6 @@ open class Computer(
 class Laptop(
     manufacturer: String = "",
     model:String ="",
-    type: String = "",
     serialNumber: String = "",
     price: Int = 0
 ): Computer(manufacturer,model,"Laptop",serialNumber,price){
@@ -60,7 +55,6 @@ class Laptop(
 class SmartPhone(
     manufacturer: String = "",
     model:String ="",
-    type: String = "",
     serialNumber: String = "",
     price: Int = 0
 ): Computer(manufacturer,model,"SmartPhone", serialNumber,price){
@@ -70,3 +64,29 @@ class SmartPhone(
         if(wifiConnection) println("Wifi is connected") else println("Please connect to wifi")
     }
 }
+
+/***************
+Opgave 3
+ ****************/
+open class Product(name: String, price: Double, quantity:Int){
+    open fun identifyProductCategory(){
+        println("No Subclass detected")
+    }
+}
+class Shirt(name: String, price: Double, quantity: Int): Product(name, price, quantity){
+    override fun identifyProductCategory() {
+        println("This product is a Shirt")
+    }
+}
+class Shoe(name: String, price: Double, quantity: Int): Product(name, price, quantity){
+    override fun identifyProductCategory() {
+        println("This product is a Shoe")
+    }
+}
+class Book(name: String, price: Double, quantity: Int): Product(name, price, quantity){
+    override fun identifyProductCategory() {
+        println("This product is a Book")
+    }
+}
+
+
