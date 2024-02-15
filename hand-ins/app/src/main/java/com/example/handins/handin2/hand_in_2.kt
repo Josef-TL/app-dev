@@ -23,4 +23,14 @@ fun main(){
     prd2.identifyProductCategory()
     prd3.identifyProductCategory()
 
+    // Opgave 4
+    val circle1 = Circle(1,"red",false)
+    println(circle1.calculatePerimiter())
+
+    val rect1 = Rectangle(3,4,"blue", true)
+    println(rect1.calculateArea())
+
+    val tri1 = Triangle(3,3,3,"green",false)
+    print(tri1.area)
+
 }
